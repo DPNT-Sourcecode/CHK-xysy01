@@ -5,9 +5,6 @@
 def checkout(skus):
     total = 0
 
-    # as there is no example of the input string,
-    # I assume it would be in "3A 2B 1C 3D" format
-
     # We need an object with prices and special offers
     # which will be working as our DB.
     db_values = {
@@ -15,10 +12,30 @@ def checkout(skus):
             'price': 50,
             'special_offer': {
                 'qty': 3,
-                'offer'
+                'offer': 130
             }
-        }
+        },
+        'B': {
+            'price': 30,
+            'special_offer': {
+                'qty': 2,
+                'offer': 45
+            }
+        },
+        'C': {
+            'price': 20,
+        },
+        'D': {
+            'price': 15,
+        },
     }
 
+    # as there is no example of the input string,
+    # I assume it would be in "3A 2B 1C 3D" format
+    for item in sku.split():
+        print(item)
+
+
     return total
+
 
