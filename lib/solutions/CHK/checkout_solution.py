@@ -5,6 +5,12 @@ import re
 # skus = unicode string
 def checkout(skus):
     total = 0
+    skus_list = skus.split()
+    # as there is no example of the input string,
+    # I assume it would be in "3A 2B 1C 3D" format
+    if len(re.findall('[0-9]+[A-D]', skus)) != len(skus_list):
+        return -1
+
 
     # We need an object with prices and special offers
     # which will be working as our DB.
@@ -31,8 +37,7 @@ def checkout(skus):
         },
     }
 
-    # as there is no example of the input string,
-    # I assume it would be in "3A 2B 1C 3D" format
+    # same assumption about skus format
     for qty, item in tuple(skus.split()):
         item_total = 0
         qty = int(qty)
@@ -47,3 +52,4 @@ def checkout(skus):
 
         total += item_total
     return total
+
