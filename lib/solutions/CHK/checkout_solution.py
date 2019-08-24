@@ -38,7 +38,7 @@ def checkout(skus):
     }
 
     # same assumption about skus format
-    for qty, item in tuple(skus.split()):
+    for qty, item in tuple(skus_list):
         item_total = 0
         qty = int(qty)
 
@@ -52,4 +52,7 @@ def checkout(skus):
 
         total += item_total
     return total
+
+
+print(checkout("3D 2D12"))
 
