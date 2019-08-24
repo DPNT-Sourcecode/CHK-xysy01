@@ -35,6 +35,7 @@ def checkout(skus):
     for qty, item in tuple(skus.split()):
         item_total = 0
         qty = int(qty)
+        
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
             offer = db_values[item]['special_offer']['offer']
@@ -45,6 +46,3 @@ def checkout(skus):
 
         total += item_total
     return total
-
-
-print(checkout("4A 3B 1C 3D"))
