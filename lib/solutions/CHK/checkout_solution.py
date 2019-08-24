@@ -39,10 +39,11 @@ def checkout(skus):
 
     # as there is no example of the input string,
     # I assume it would be in "3A 2B 1C 3D" format
-    for qty, item in tuple(skus_list):
+    for sku in skus_list:
 
         item_total = 0
-        qty = int(qty)
+        item = sku[-1]
+        qty = int(sku[0:-1])
 
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
@@ -64,4 +65,4 @@ def check_values(skus_list):
     return True
 
 
-print(checkout("30D 2D"))
+print(checkout("40A 3B 1C 2D"))
