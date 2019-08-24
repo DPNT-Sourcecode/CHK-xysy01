@@ -45,6 +45,9 @@ def checkout(skus):
         item = sku[-1]
         qty = int(sku[0:-1])
 
+        if not check_values(qty, item):
+            return -1
+
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
             offer = db_values[item]['special_offer']['offer']
@@ -56,7 +59,7 @@ def checkout(skus):
         total += item_total
     return total
 
-def check_values(skus_list):
+def check_values(qty, item):
     if not qty.isdigit():
         return False
     if not bool(re.match('[A-D]', item)):
@@ -66,3 +69,4 @@ def check_values(skus_list):
 
 
 print(checkout("40A 3B 1C 2D"))
+
