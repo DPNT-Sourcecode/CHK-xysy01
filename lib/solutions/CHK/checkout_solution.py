@@ -64,5 +64,3 @@ def check_values(qty, item):
         return False
 
     return True
-
-
