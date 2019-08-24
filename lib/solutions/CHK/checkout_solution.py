@@ -33,12 +33,20 @@ def checkout(skus):
     # as there is no example of the input string,
     # I assume it would be in "3A 2B 1C 3D" format
     for qty, item in tuple(skus.split()):
-        total += int(qty) * db_values[item]['price']
+        item_total = 0
+        qty = int(qty)
+        if db_values[item]['special_offer']:
+            offer_qty = db_values[item]['special_offer']['qty']
+            offer = db_values[item]['special_offer']['offer']
+            item_total = qty / offer_qty * offer + qty % offer_qty * db_values[item]['price']
+        else:
+            item_total = qty * db_values[item]['price']
 
-
+        total += item_total
     return total
 
 
 print(checkout("3A 2B 1C 3D"))
+
 
 
