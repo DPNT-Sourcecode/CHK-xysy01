@@ -32,10 +32,13 @@ def checkout(skus):
 
     # as there is no example of the input string,
     # I assume it would be in "3A 2B 1C 3D" format
-    for item in sku.split():
-        print(item)
+    for qty, item in tuple(skus.split()):
+        print(item, qty)
 
 
     return total
+
+
+checkout("3A 2B 1C 3D")
 
 
