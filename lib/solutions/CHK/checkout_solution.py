@@ -36,12 +36,10 @@ def checkout(skus):
         },
     }
 
+
     # as there is no example of the input string,
     # I assume it would be in "3A 2B 1C 3D" format
     for qty, item in tuple(skus_list):
-
-        if not check_values(qty, item):
-            return -1 
 
         item_total = 0
         qty = int(qty)
@@ -57,7 +55,7 @@ def checkout(skus):
         total += item_total
     return total
 
-def check_values(qty, item):
+def check_values(skus_list):
     if not qty.isdigit():
         return False
     if not bool(re.match('[A-D]', item)):
@@ -66,4 +64,4 @@ def check_values(qty, item):
     return True
 
 
-print(checkout("3D 2D12"))
+print(checkout("30D 2D"))
