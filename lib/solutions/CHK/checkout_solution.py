@@ -39,6 +39,10 @@ def checkout(skus):
     # as there is no example of the input string,
     # I assume it would be in "3A 2B 1C 3D" format
     for qty, item in tuple(skus_list):
+
+        if not check_values(qty, item):
+            return -1 
+
         item_total = 0
         qty = int(qty)
 
