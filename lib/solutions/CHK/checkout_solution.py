@@ -38,7 +38,8 @@ def checkout(skus):
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
             offer = db_values[item]['special_offer']['offer']
-            item_total = qty / offer_qty * offer + qty % offer_qty * db_values[item]['price']
+
+            item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
         else:
             item_total = qty * db_values[item]['price']
 
@@ -46,8 +47,4 @@ def checkout(skus):
     return total
 
 
-print(checkout("3A 2B 1C 3D"))
-
-
-
-
+print(checkout("4A 3B 1C 3D"))
