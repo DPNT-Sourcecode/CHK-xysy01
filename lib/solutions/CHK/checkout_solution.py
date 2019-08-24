@@ -56,7 +56,7 @@ def checkout(skus):
         total += item_total
     return total
 
-# input validation
+# function to check either each SKU is in correct format
 def check_values(qty, item):
     if not qty.isdigit():
         return False
@@ -64,4 +64,5 @@ def check_values(qty, item):
         return False
 
     return True
+
 
