@@ -1,4 +1,5 @@
 
+import re
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -35,7 +36,7 @@ def checkout(skus):
     for qty, item in tuple(skus.split()):
         item_total = 0
         qty = int(qty)
-        
+
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
             offer = db_values[item]['special_offer']['offer']
