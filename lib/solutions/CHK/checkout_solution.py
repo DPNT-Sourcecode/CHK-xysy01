@@ -1,4 +1,3 @@
-
 import re
 
 # noinspection PyUnusedLocal
@@ -6,10 +5,6 @@ import re
 def checkout(skus):
     total = 0
     skus_list = skus.split()
-    
-    if len(re.findall('[0-9]+[A-D]', skus)) != len(skus_list):
-        return -1
-
 
     # We need an object with prices and special offers
     # which will be working as our DB.
@@ -43,10 +38,12 @@ def checkout(skus):
 
         item_total = 0
         item = sku[-1]
-        qty = int(sku[0:-1])
+        qty = sku[0:-1]
 
         if not check_values(qty, item):
             return -1
+
+        qty = int(qty)
 
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
@@ -59,6 +56,7 @@ def checkout(skus):
         total += item_total
     return total
 
+# input validation
 def check_values(qty, item):
     if not qty.isdigit():
         return False
@@ -66,7 +64,4 @@ def check_values(qty, item):
         return False
 
     return True
-
-
-print(checkout("40A 3B 1C 2D"))
 
