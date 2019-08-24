@@ -55,4 +55,3 @@ def checkout(skus):
 
 
 print(checkout("3D 2D12"))
-
