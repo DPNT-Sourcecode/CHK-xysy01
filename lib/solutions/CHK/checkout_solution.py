@@ -6,8 +6,7 @@ import re
 def checkout(skus):
     total = 0
     skus_list = skus.split()
-    # as there is no example of the input string,
-    # I assume it would be in "3A 2B 1C 3D" format
+    
     if len(re.findall('[0-9]+[A-D]', skus)) != len(skus_list):
         return -1
 
@@ -37,7 +36,8 @@ def checkout(skus):
         },
     }
 
-    # same assumption about skus format
+    # as there is no example of the input string,
+    # I assume it would be in "3A 2B 1C 3D" format
     for qty, item in tuple(skus_list):
         item_total = 0
         qty = int(qty)
@@ -52,6 +52,14 @@ def checkout(skus):
 
         total += item_total
     return total
+
+def check_values(qty, item):
+    if not qty.isdigit():
+        return False
+    if not bool(re.match('[A-D]', item)):
+        return False
+
+    return True
 
 
 print(checkout("3D 2D12"))
