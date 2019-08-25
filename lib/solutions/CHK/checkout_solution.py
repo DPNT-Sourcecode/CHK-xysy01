@@ -4,8 +4,7 @@ import re
 # skus = unicode string
 def checkout(skus):
     total = 0
-    skus_list = skus.split()
-
+    
     # We need an object with prices and special offers
     # which will be working as our DB.
     db_values = {
@@ -32,8 +31,8 @@ def checkout(skus):
     }
 
 
-    # as there is no example of the input string,
-    # I assume it would be in "3A 2B 1C 3D" format
+    # My previous assumption about input was wrong,
+    # as well as the solution
     for sku in skus_list:
 
         item_total = 0
@@ -56,11 +55,4 @@ def checkout(skus):
         total += item_total
     return total
 
-# function to check either each SKU is in correct format
-def check_values(qty, item):
-    if not qty.isdigit():
-        return False
-    if not bool(re.match('[A-D]', item)):
-        return False
 
-    return True
