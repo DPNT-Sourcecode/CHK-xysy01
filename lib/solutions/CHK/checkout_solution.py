@@ -85,7 +85,3 @@ def apply_offer(item, qty):
         offer = sp['offer']
 
     item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
-
-
-
-
