@@ -4,6 +4,12 @@ import re
 # skus = unicode string
 def checkout(skus):
     total = 0
+
+    # check for valid input
+    if skus != "" and not skus.isalpha():
+        return -1
+    if skus != skus.upper():
+        return -1
     
     # We need an object with prices and special offers
     # which will be working as our DB.
@@ -35,14 +41,14 @@ def checkout(skus):
     # as well as the solution
     for sku in skus_list:
 
-        item_total = 0
-        item = sku[-1]
-        qty = sku[0:-1]
+        # item_total = 0
+        # item = sku[-1]
+        # qty = sku[0:-1]
 
-        if not check_values(qty, item):
-            return -1
+        # if not check_values(qty, item):
+        #     return -1
 
-        qty = int(qty)
+        # qty = int(qty)
 
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
@@ -54,5 +60,6 @@ def checkout(skus):
 
         total += item_total
     return total
+
 
 
