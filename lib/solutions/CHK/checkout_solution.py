@@ -45,7 +45,6 @@ def checkout(skus):
     if skus != skus.upper():
         return -1
     
-
     # My previous assumption about input was wrong,
     # as well as the solution
 
@@ -65,16 +64,13 @@ def checkout(skus):
         if item not in db_values:
             return -1
 
-
         if 'special_offer' in db_values[item]:
-
             item_total = apply_offer(item, qty)
-
-            
         else:
             item_total = qty * db_values[item]['price']
 
         total += item_total
+
     return total
 
 
@@ -82,6 +78,11 @@ def apply_offer(item, qty):
     offer_qty = db_values[item]['special_offer']['qty']
     offer = db_values[item]['special_offer']['offer']
 
+    for sp in db_values[item]['special_offer']:
+        offer_qty = sp['qty']
+        offer = sp['offer']
+
     item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
 
