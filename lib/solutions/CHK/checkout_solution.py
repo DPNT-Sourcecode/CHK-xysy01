@@ -55,6 +55,9 @@ def checkout(skus):
     # My previous assumption about input was wrong,
     # as well as the solution
 
+    # reset cart object
+    cart.clear()
+
     # populate cart object with item quantity
     for i in skus:
         if i not in cart:
@@ -118,6 +121,7 @@ def apply_offer(item, qty):
     return total
 
 print(checkout("B"))
+
 
 
 
