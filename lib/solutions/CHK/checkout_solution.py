@@ -97,8 +97,7 @@ def apply_offer(item, qty):
 
         if items_left >= offer_qty:
             eligible_for_offer = int(items_left / offer_qty)
-            items_left -= eligible_for_offer
-
+            items_left -= eligible_for_offer * offer_qty
 
             # check if offer is a price or free item 
             if sp['type'] == 'price':
@@ -115,5 +114,6 @@ def apply_offer(item, qty):
         
     return total
     # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
 
