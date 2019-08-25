@@ -92,12 +92,18 @@ def apply_offer(item, qty):
             eligible_for_offer = int(items_left / offer_qty)
             items_left -= eligible_for_offer
 
-            offer_total = eligible_for_offer * offer           
-            pass
+
+            # TODO: check if offer is a price or free item 
+            total += eligible_for_offer * offer
         else:
             continue
-        
 
-    item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+    # if any items left that are not eligible for ofer apply regular price
+    if items_left > 0:
+        total += items_left * db_values[item]['price']
+        
+    return total
+    # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
 
