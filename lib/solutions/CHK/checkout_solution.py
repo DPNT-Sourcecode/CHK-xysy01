@@ -39,16 +39,22 @@ def checkout(skus):
 
     # My previous assumption about input was wrong,
     # as well as the solution
-    for sku in skus_list:
 
-        # item_total = 0
-        # item = sku[-1]
-        # qty = sku[0:-1]
+    # create cart object with item quantity
+    cart = {}
 
-        # if not check_values(qty, item):
-        #     return -1
+    for i in skus:
+        if i not in cart:
+            cart[i] = 1
+        else:
+            cart[i] += 1 
 
-        # qty = int(qty)
+    for item in cart:
+        item_total = 0
+        qty = cart[item]
+
+        if item not in db_values:
+            return -1
 
         if 'special_offer' in db_values[item]:
             offer_qty = db_values[item]['special_offer']['qty']
@@ -60,6 +66,7 @@ def checkout(skus):
 
         total += item_total
     return total
+
 
 
 
