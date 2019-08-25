@@ -27,10 +27,10 @@ def checkout(skus):
         },
         'B': {
             'price': 30,
-            'special_offer': {
+            'special_offer': [{
                 'qty': 2,
                 'offer': 45
-            }
+            }]
         },
         'C': {
             'price': 20,
@@ -40,10 +40,10 @@ def checkout(skus):
         },
         'E': {
             'price': 40,
-            'special_offer': {
+            'special_offer': [{
                 'qty': 2,
-                'offer': 'B free?'  # not sure how to store it 
-            }
+                'offer': 'B'  # not sure how to store it 
+            }]
         },
     }
 
@@ -77,4 +77,5 @@ def checkout(skus):
 
         total += item_total
     return total
+
 
