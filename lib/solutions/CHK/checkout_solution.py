@@ -38,6 +38,9 @@ db_values = {
     },
 }
 
+# create cart object with item quantity
+cart = {}
+
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
@@ -52,7 +55,7 @@ def checkout(skus):
     # My previous assumption about input was wrong,
     # as well as the solution
 
-    # create cart object with item quantity
+    # truncate and populate cart object with item quantity
     cart = {}
 
     for i in skus:
@@ -97,12 +100,17 @@ def apply_offer(item, qty):
             items_left -= eligible_for_offer
 
 
-            # TODO: check if offer is a price or free item 
-            total += eligible_for_offer * offer
+            # check if offer is a price or free item 
+            if sp['type'] == 'price':
+                total += eligible_for_offer * offer
+            else if sp['type'] == 'freebie':
+                # check if an item in the cart and update total for the item
 
-    # if any items left that are not eligible for ofer apply regular price
+
+    # if any items left that are not eligible for offer apply regular price
     if items_left > 0:
         total += items_left * db_values[item]['price']
         
     return total
     # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
