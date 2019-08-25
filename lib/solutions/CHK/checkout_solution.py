@@ -53,13 +53,13 @@ def checkout(skus):
 
     for i in skus:
         if i not in cart:
-            cart[i] = 1
+            cart[i] = { 'qty': 1, 'total': 0 }
         else:
-            cart[i] += 1 
+            cart[i]['qty'] += 1 
 
     for item in cart:
         item_total = 0
-        qty = cart[item]
+        qty = cart[item]['qty']
 
         if item not in db_values:
             return -1
@@ -69,19 +69,34 @@ def checkout(skus):
         else:
             item_total = qty * db_values[item]['price']
 
-        total += item_total
+        cart[item]['total'] += item_total
 
     return total
 
 
 def apply_offer(item, qty):
-
+    # List of objects with all offers for the item
     sp_offers = db_values[item]['special_offer']
     # Sort list from greatest to lowest by quantity
     sp_offers.sort(key=lambda x: x['qty'], reverse=True)
+
+    # item counter need as we may apply few offers depending on quantity
+    items_left = qty
+    total = 0
 
     for sp in sp_offers:
         offer_qty = sp['qty']
         offer = sp['offer']
 
+        if items_left >= offer_qty:
+            eligible_for_offer = int(items_left / offer_qty)
+            items_left -= eligible_for_offer
+
+            eligible_for_offer * offer           
+            pass
+        else:
+            continue
+        
+
     item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
