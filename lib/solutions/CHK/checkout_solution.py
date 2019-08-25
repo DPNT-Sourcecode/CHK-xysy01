@@ -76,6 +76,9 @@ def checkout(skus):
 
         cart[item]['total'] += item_total
 
+    for i in cart:
+        total += cart[i]['total']
+        
     return total
 
 
@@ -101,6 +104,7 @@ def apply_offer(item, qty):
             if sp['type'] == 'price':
                 total += eligible_for_offer * offer
             elif sp['type'] == 'freebie':
+                total += qty * db_values[item]['price']
                 # check if an item in the cart and update total for the item
                 if offer in cart:
                     if cart[offer]['total'] >= eligible_for_offer * db_values[offer]['price']:
@@ -112,4 +116,5 @@ def apply_offer(item, qty):
         
     return total
     # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
