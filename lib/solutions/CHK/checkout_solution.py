@@ -55,9 +55,7 @@ def checkout(skus):
     # My previous assumption about input was wrong,
     # as well as the solution
 
-    # truncate and populate cart object with item quantity
-    cart = {}
-
+    # populate cart object with item quantity
     for i in skus:
         if i not in cart:
             cart[i] = { 'qty': 1, 'total': 0 }
@@ -105,7 +103,7 @@ def apply_offer(item, qty):
             elif sp['type'] == 'freebie':
                 # check if an item in the cart and update total for the item
                 if offer in cart:
-                    if cart[offer]['total'] > eligible_for_offer * db_values[offer]['price']:
+                    if cart[offer]['total'] >= eligible_for_offer * db_values[offer]['price']:
                         cart[offer]['total'] -= eligible_for_offer * db_values[offer]['price']
 
     # if any items left that are not eligible for offer apply regular price
@@ -114,3 +112,4 @@ def apply_offer(item, qty):
         
     return total
     # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
