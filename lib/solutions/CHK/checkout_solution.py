@@ -16,10 +16,14 @@ def checkout(skus):
     db_values = {
         'A': {
             'price': 50,
-            'special_offer': {
+            'special_offer': [{
                 'qty': 3,
                 'offer': 130
-            }
+            }, 
+            {
+                'qty': 5,
+                'offer': 200
+            }]
         },
         'B': {
             'price': 30,
@@ -33,6 +37,13 @@ def checkout(skus):
         },
         'D': {
             'price': 15,
+        },
+        'E': {
+            'price': 40,
+            'special_offer': {
+                'qty': 2,
+                'offer': 'B free?'  # not sure how to store it 
+            }
         },
     }
 
@@ -66,3 +77,4 @@ def checkout(skus):
 
         total += item_total
     return total
+
