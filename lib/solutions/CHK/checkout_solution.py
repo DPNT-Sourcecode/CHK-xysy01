@@ -75,14 +75,17 @@ def checkout(skus):
 
 
 def apply_offer(item, qty):
-    offer_qty = db_values[item]['special_offer']['qty']
-    offer = db_values[item]['special_offer']['offer']
 
-    for sp in db_values[item]['special_offer']:
+    sp_offers = db_values[item]['special_offer']
+    # Sort list from greatest to lowest by quantity
+    sp_offers.sort(key=lambda x: x['qty'], reverse=True)
+
+    for sp in sp_offers:
         offer_qty = sp['qty']
         offer = sp['offer']
 
     item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
 
 
