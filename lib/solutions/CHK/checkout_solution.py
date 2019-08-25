@@ -92,11 +92,12 @@ def apply_offer(item, qty):
             eligible_for_offer = int(items_left / offer_qty)
             items_left -= eligible_for_offer
 
-            eligible_for_offer * offer           
+            offer_total = eligible_for_offer * offer           
             pass
         else:
             continue
         
 
     item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
