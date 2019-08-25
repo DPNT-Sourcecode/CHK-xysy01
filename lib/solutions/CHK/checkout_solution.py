@@ -5,18 +5,21 @@ db_values = {
         'price': 50,
         'special_offer': [{
             'qty': 3,
-            'offer': 130
+            'offer': 130,
+            'type': 'price'
         }, 
         {
             'qty': 5,
-            'offer': 200
+            'offer': 200,
+            'type': 'price'
         }]
     },
     'B': {
         'price': 30,
         'special_offer': [{
             'qty': 2,
-            'offer': 45
+            'offer': 45,
+            'type': 'price'
         }]
     },
     'C': {
@@ -29,7 +32,8 @@ db_values = {
         'price': 40,
         'special_offer': [{
             'qty': 2,
-            'offer': 'B'
+            'offer': 'B',
+            'type': 'freebie'
         }]
     },
 }
@@ -95,8 +99,6 @@ def apply_offer(item, qty):
 
             # TODO: check if offer is a price or free item 
             total += eligible_for_offer * offer
-        else:
-            continue
 
     # if any items left that are not eligible for ofer apply regular price
     if items_left > 0:
@@ -104,6 +106,7 @@ def apply_offer(item, qty):
         
     return total
     # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
 
 
