@@ -114,7 +114,3 @@ def apply_offer(item, qty):
         
     return total
     # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
-
-
-
-
