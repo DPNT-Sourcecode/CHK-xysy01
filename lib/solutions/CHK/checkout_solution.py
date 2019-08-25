@@ -77,5 +77,3 @@ def checkout(skus):
 
         total += item_total
     return total
-
-
