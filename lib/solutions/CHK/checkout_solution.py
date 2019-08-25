@@ -1,4 +1,3 @@
-import re
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -42,7 +41,7 @@ def checkout(skus):
             'price': 40,
             'special_offer': [{
                 'qty': 2,
-                'offer': 'B'  # not sure how to store it 
+                'offer': 'B'
             }]
         },
     }
@@ -77,3 +76,4 @@ def checkout(skus):
 
         total += item_total
     return total
+
