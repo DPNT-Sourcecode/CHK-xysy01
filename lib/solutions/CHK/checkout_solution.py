@@ -1,3 +1,38 @@
+# We need an object with prices and special offers
+# which will be working as our DB.
+db_values = {
+    'A': {
+        'price': 50,
+        'special_offer': [{
+            'qty': 3,
+            'offer': 130
+        }, 
+        {
+            'qty': 5,
+            'offer': 200
+        }]
+    },
+    'B': {
+        'price': 30,
+        'special_offer': [{
+            'qty': 2,
+            'offer': 45
+        }]
+    },
+    'C': {
+        'price': 20,
+    },
+    'D': {
+        'price': 15,
+    },
+    'E': {
+        'price': 40,
+        'special_offer': [{
+            'qty': 2,
+            'offer': 'B'
+        }]
+    },
+}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -10,42 +45,6 @@ def checkout(skus):
     if skus != skus.upper():
         return -1
     
-    # We need an object with prices and special offers
-    # which will be working as our DB.
-    db_values = {
-        'A': {
-            'price': 50,
-            'special_offer': [{
-                'qty': 3,
-                'offer': 130
-            }, 
-            {
-                'qty': 5,
-                'offer': 200
-            }]
-        },
-        'B': {
-            'price': 30,
-            'special_offer': [{
-                'qty': 2,
-                'offer': 45
-            }]
-        },
-        'C': {
-            'price': 20,
-        },
-        'D': {
-            'price': 15,
-        },
-        'E': {
-            'price': 40,
-            'special_offer': [{
-                'qty': 2,
-                'offer': 'B'
-            }]
-        },
-    }
-
 
     # My previous assumption about input was wrong,
     # as well as the solution
@@ -66,14 +65,23 @@ def checkout(skus):
         if item not in db_values:
             return -1
 
-        if 'special_offer' in db_values[item]:
-            offer_qty = db_values[item]['special_offer']['qty']
-            offer = db_values[item]['special_offer']['offer']
 
-            item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+        if 'special_offer' in db_values[item]:
+
+            item_total = apply_offer(item, qty)
+
+            
         else:
             item_total = qty * db_values[item]['price']
 
         total += item_total
     return total
+
+
+def apply_offer(item, qty):
+    offer_qty = db_values[item]['special_offer']['qty']
+    offer = db_values[item]['special_offer']['offer']
+
+    item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
