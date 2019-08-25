@@ -76,9 +76,10 @@ def checkout(skus):
 
         cart[item]['total'] += item_total
 
+    # sum all the totals
     for i in cart:
         total += cart[i]['total']
-        
+
     return total
 
 
@@ -115,6 +116,6 @@ def apply_offer(item, qty):
         total += items_left * db_values[item]['price']
         
     return total
-    # item_total = int(qty / offer_qty) * offer + qty % offer_qty * db_values[item]['price']
+
 
 
