@@ -145,7 +145,7 @@ def cart_total():
 
                 items_left = eligible_free
 
-                for spin sp_offers:
+                for sp in sp_offers:
                     if sp['type'] != 'price':
                         continue
 
@@ -165,85 +165,17 @@ def cart_total():
     return total
 
 
+print(checkout("AAAAAAAAAA")) # 400
+print(checkout("a")) # -1
+print(checkout("-")) # -1
+print(checkout("AAAAAAAAW")) # -1
+print(checkout("ABCDEABCDE")) # 265
+print(checkout("EEB")) # 110
+print(checkout("EEEB")) # 190
+print(checkout("EEEEBB")) # 205
 
 
-#     total = 0
 
-#     # check for valid input
-#     if skus != "" and not skus.isalpha():
-#         return -1
-#     if skus != skus.upper():
-#         return -1
-    
-#     # My previous assumption about input was wrong,
-#     # as well as the solution
-
-#     # reset cart object
-#     cart.clear()
-
-#     # populate cart object with item quantity
-#     for i in skus:
-#         if i not in cart:
-#             cart[i] = { 'qty': 1, 'total': 0 }
-#         else:
-#             cart[i]['qty'] += 1 
-
-#     for item in cart:
-#         item_total = 0
-#         qty = cart[item]['qty']
-
-#         if item not in db_values:
-#             return -1
-
-#         if 'special_offer' in db_values[item]:
-#             item_total = apply_offer(item, qty)
-#         else:
-#             item_total = qty * db_values[item]['price']
-
-#         cart[item]['total'] += item_total
-
-#     # sum all the totals
-#     for i in cart:
-#         total += cart[i]['total']
-
-#     return total
-
-
-# def apply_offer(item, qty):
-#     # List of objects with all offers for the item
-#     sp_offers = db_values[item]['special_offer']
-#     # Sort list from greatest to lowest by quantity
-#     sp_offers.sort(key=lambda x: x['qty'], reverse=True)
-
-#     # item counter need as we may apply few offers depending on quantity
-#     items_left = qty
-#     total = 0
-
-#     for sp in sp_offers:
-#         offer_qty = sp['qty']
-#         offer = sp['offer']
-
-#         if items_left >= offer_qty:
-#             eligible_for_offer = int(items_left / offer_qty)
-#             items_left -= eligible_for_offer * offer_qty
-
-#             # check if offer is a price or free item 
-#             if sp['type'] == 'price':
-#                 total += eligible_for_offer * offer
-#             elif sp['type'] == 'freebie':
-#                 total += qty * db_values[item]['price']
-#                 # check if an item in the cart and update total for the item
-#                 if offer in cart:
-#                     if cart[offer]['total'] >= eligible_for_offer * db_values[offer]['price']:
-#                         cart[offer]['total'] -= eligible_for_offer * db_values[offer]['price']
-
-#     # if any items left that are not eligible for offer apply regular price
-#     if items_left > 0:
-#         total += items_left * db_values[item]['price']
-        
-#     return total
-
-# print(checkout("B"))
 
 
 
