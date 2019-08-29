@@ -108,7 +108,11 @@ def total_per_item():
                         # update cart total with offer price
                         cart[item]['total'] += offers_to_apply * offer
                     elif sp['type'] == 'freebie':
-                        
+                        # add regular price for this item's total
+                        cart[item]['total'] = offers_to_apply * offer_qty * db_values[item]['price']
+                        # check if offer item in the cart and add it
+                        if offer in cart:
+                            cart[offer]['eligible_free'] += offers_to_apply
 
 
 
@@ -197,6 +201,7 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
 
 
