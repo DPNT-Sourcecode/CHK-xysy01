@@ -81,6 +81,15 @@ def total_per_item():
 
         if item not in db_values:
             return False
+
+        if 'special_offer' in db_values:
+            # as we can have few offers we need to loop through them
+            # and apply biggest one first
+            # List of objects with all offers for the item
+            sp_offers = db_values[item]['special_offer']
+            # Sort list from greatest to lowest by quantity
+            sp_offers.sort(key=lambda x: x['qty'], reverse=True)
+
     return True
 
 def cart_total():
@@ -166,6 +175,7 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
 
 
