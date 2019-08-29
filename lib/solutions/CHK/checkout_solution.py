@@ -60,7 +60,7 @@ def checkout(skus):
     if not total_per_item():
         return -1
     # calculate total value
-    cart_total()
+    return cart_total()
 
 def populate_cart(skus):
     # populate cart object with item quantity
@@ -120,12 +120,24 @@ def total_per_item():
         else:
             cart[item]['total'] += qty + db_values[item]['price']
 
-
-
     return True
 
 def cart_total():
-    pass
+    total = 0
+
+    for i in cart:
+        item = cart[i]
+
+        # here check for freebies
+        if item['eligible_free'] > 0:
+            # if there is more freebies than qty
+            # check if there is price offers to calculate cost of freebies
+            # check if there is enough items to apply offer or how many we can apply
+
+
+
+
+    return total
 
 
 
@@ -207,4 +219,5 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
