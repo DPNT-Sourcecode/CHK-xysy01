@@ -163,10 +163,3 @@ def cart_total():
                             eligible_offer += db_values[i]['price']
         total += item['total'] - eligible_offer
     return total
-
-
-
-
-
-
-
