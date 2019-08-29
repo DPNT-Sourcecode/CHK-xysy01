@@ -124,12 +124,13 @@ def total_per_item():
     return True
 
 def cart_total():
-    print(cart)
+    # print(cart)
     total = 0
-    eligible_offer = 0
+    
 
     for i in cart:
         item = cart[i]
+        eligible_offer = 0
 
         # here check for freebies
         if item['eligible_free'] > 0:
@@ -155,7 +156,7 @@ def cart_total():
                     offer = sp['offer']
 
                     # check if there is enough items to apply offer or how many we can apply
-                    print(items_left, offer_qty, item, i)
+                    # print(items_left, offer_qty, item, i)
                     if items_left >=  offer_qty:
                         offers_to_apply = int(items_left / offer_qty)
                         items_left = offers_to_apply * offer_qty
@@ -164,14 +165,14 @@ def cart_total():
                     else:
                         eligible_offer += db_values[i]['price']
 
-                    print(eligible_offer, 'eligible_offer')
-
+                    # print(eligible_offer, 'eligible_offer')
+        # print(i, item, eligible_offer)    
         total += item['total'] - eligible_offer
     return total
 
 
 print(checkout('BEBEEE')) # 160
-# print(checkout('EEEEBB')) # ?
-# print(checkout('ABCDEABCDE')) # 280
-# print(checkout('CCADDEEBBA')) # 280
+print(checkout('EEEEBB')) # 160
+print(checkout('ABCDEABCDE')) # 280
+print(checkout('CCADDEEBBA')) # 280
 
