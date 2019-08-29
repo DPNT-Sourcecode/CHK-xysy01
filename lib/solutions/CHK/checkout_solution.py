@@ -57,11 +57,14 @@ def checkout(skus):
     # populate cart
     populate_cart(skus)
     # calculate total for each item
-    total_per_item()
+    if not total_per_item():
+        return -1
     # calculate total value
     cart_total()
 
 def populate_cart(skus):
+    # populate cart object with item quantity
+    # leave total = 0 till later calculation 
     for i in skus:
         if i not in cart:
             cart[i] = {
@@ -73,7 +76,12 @@ def populate_cart(skus):
             cart[i]['qty'] += 1
 
 def total_per_item():
-    pass
+    for item in cart:
+        qty = cart[item]['qty']
+
+        if item not in db_values:
+            return False
+    return True
 
 def cart_total():
     pass
@@ -158,5 +166,6 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
 
