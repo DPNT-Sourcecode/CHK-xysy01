@@ -90,6 +90,18 @@ def total_per_item():
             # Sort list from greatest to lowest by quantity
             sp_offers.sort(key=lambda x: x['qty'], reverse=True)
 
+            items_left = qty
+
+            # loop through each special offer
+            for sp in sp_offers:
+                offer_qty = sp['qty']
+                offer = sp['offer']
+
+                # check if there is enough items to apply offer
+                    # how many offers we can apply
+                    # offers can be a bundle price or freebie
+                    
+
     return True
 
 def cart_total():
@@ -175,6 +187,7 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
 
 
