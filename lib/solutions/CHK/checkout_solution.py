@@ -121,8 +121,3 @@ def apply_offer(item, qty):
     return total
 
 print(checkout("B"))
-
-
-
-
-
