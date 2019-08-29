@@ -296,11 +296,3 @@ print(checkout('UUUUUUUU'), 240)
 # print(checkout('RRRRRRQQ'), 240)
 # print(checkout('FFFFFF'), 40)
 
-
-
-
-
-
-
-
-
