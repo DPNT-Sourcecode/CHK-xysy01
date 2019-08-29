@@ -172,6 +172,3 @@ def cart_total():
     return total
 
 
-print(checkout('FFF'), 20)
-
-
