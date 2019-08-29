@@ -164,9 +164,12 @@ def cart_total():
 
                         eligible_offer += offers_to_apply * offer
                     else:
-                        if item['qty'] % offer_qty == 0 and not offer.isalpha():
-                            eligible_offer += offer - db_values[i]['price']
+                        if item['qty'] % offer_qty == 0:
+                            if not offer.isalpha():
+                                print('else if')
+                                eligible_offer += offer - db_values[i]['price']
                         else:
+                            print('else else')
                             eligible_offer += db_values[i]['price']
         total += item['total'] - eligible_offer
     return total
@@ -179,6 +182,7 @@ print(checkout('FFF'), 20)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('CCADDEEBBA'), 280)
 # print(checkout('ABCDEABCDE'), 280)
+
 
 
 
