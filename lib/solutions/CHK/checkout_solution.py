@@ -109,6 +109,11 @@ db_values = {
     },
     'R': {
         'price': 50,
+        'special_offer': [{
+            'qty': 3,
+            'offer': 'Q',
+            'type': 'freebie'
+        }]
     },
     'S': {
         'price': 30,
@@ -118,9 +123,24 @@ db_values = {
     },
     'U': {
         'price': 40,
+        'special_offer': [{
+            'qty': 3,
+            'offer': 'U',
+            'type': 'freebie'
+        }]
     },
     'V': {
         'price': 50,
+        'special_offer': [{
+            'qty': 2,
+            'offer': 90,
+            'type': 'price'
+        },
+        {
+            'qty': 3,
+            'offer': 130,
+            'type': 'price'
+        }]
     },
     'W': {
         'price': 20,
@@ -267,6 +287,7 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
+
 
 
 
