@@ -36,6 +36,14 @@ db_values = {
             'type': 'freebie'
         }]
     },
+    'F': {
+        'price': 10,
+        'special_offer': [{
+            'qty': 2,
+            'offer': 'F',
+            'type': 'freebie'
+        }]
+    },
 }
 
 # create cart object with item quantity
@@ -125,7 +133,7 @@ def total_per_item():
 
 def cart_total():
     total = 0
-    
+    print(cart)
 
     for i in cart:
         item = cart[i]
@@ -163,3 +171,6 @@ def cart_total():
                             eligible_offer += db_values[i]['price']
         total += item['total'] - eligible_offer
     return total
+
+
+print(checkout('FFF'), 20)
