@@ -162,7 +162,7 @@ def cart_total():
 
                             # exception for applying freebies to itself
                             if i == offer:
-                                print(item)
+                                print(item, items_left, offer_qty, offers_to_apply)
                                 eligible_offer += offers_to_apply * db_values[i]['price']
                             else:   
                                 eligible_offer += offers_to_apply * offer
@@ -186,4 +186,5 @@ print(checkout('FFFFFF'), 40)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('CCADDEEBBA'), 280)
 # print(checkout('ABCDEABCDE'), 280)
+
 
