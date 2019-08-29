@@ -124,6 +124,7 @@ def total_per_item():
 
 def cart_total():
     total = 0
+    eligible_offer = 0
 
     for i in cart:
         item = cart[i]
@@ -156,10 +157,11 @@ def cart_total():
                         offers_to_apply = int(items_left / offer_qty)
                         items_left = offers_to_apply * offer_qty
 
+                        eligible_offer += offers_to_apply * offer
+                    else:
+                        eligible_offer += db_values[i]['price']
 
-
-
-
+        total += item['total'] - eligible_offer
     return total
 
 
@@ -242,6 +244,7 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
 
 
