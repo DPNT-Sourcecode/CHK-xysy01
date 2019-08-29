@@ -312,41 +312,20 @@ def cart_total():
                             eligible_offer += db_values[i]['price']
 
 
-        # print(cart, db_values[i])
+        print(cart, db_values[i])
         total += item['total'] - eligible_offer
     return total
 
 
 
 print(checkout('UUUUUUUU'), 240)
-print(checkout('RRRRRRQQ'), 240)
-print(checkout('FFFFFF'), 40)
-print(checkout('AAAAAAAAAA'), 400)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
-print(checkout('FFFFFF'), 40)
+# print(checkout('RRRRRRQQ'), 240)
+# print(checkout('FFFFFF'), 40)
+# print(checkout('AAAAAAAAAA'), 400)
+# print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
+# print(checkout('EEEEBB'), 160)
+# print(checkout('BEBEEE'), 160)
+# print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
