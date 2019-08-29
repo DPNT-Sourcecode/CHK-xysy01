@@ -170,6 +170,8 @@ def cart_total():
                                 # it should always have extra freebie in the cart to apply
                                 if i != offer:
                                     eligible_offer += offer - db_values[i]['price']
+                                else:
+                                    eligible_offer += int(item['qty'] / offer_qty) * db_values[i]['price']
                             else:
                                 eligible_offer += db_values[i]['price']
 
@@ -178,13 +180,14 @@ def cart_total():
 
 print(checkout('FF'), 20)
 print(checkout('FFF'), 20)
-print(checkout('FFFF'), 30)
-print(checkout('BBBB'), 90)
-print(checkout('EE'), 80)
-print(checkout('EEB'), 80)
-print(checkout('EEEEBB'), 160)
-print(checkout('CCADDEEBBA'), 280)
-print(checkout('ABCDEABCDE'), 280)
+print(checkout('FFFFFF'), 40)
+# print(checkout('BBBB'), 90)
+# print(checkout('EE'), 80)
+# print(checkout('EEB'), 80)
+# print(checkout('EEEEBB'), 160)
+# print(checkout('CCADDEEBBA'), 280)
+# print(checkout('ABCDEABCDE'), 280)
+
 
 
 
