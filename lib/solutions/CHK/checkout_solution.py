@@ -135,6 +135,7 @@ def cart_total():
         # here check for freebies
         if item['eligible_free'] > 0:
             # if there is more freebies than qty
+            print(item['eligible_free'], item['qty'], 'eligible free')
             if item['eligible_free'] > item['qty']:
                 eligible_free = item['eligible_free']
             else:
@@ -181,8 +182,4 @@ print(checkout('CCADDEEBBA')) # 280
 # print(checkout('AAAAAAAAAA')) # 400
 # print(checkout('EE')) # 80
 # print(checkout('EEB')) # 80
-
-
-
-
 
