@@ -133,7 +133,6 @@ def total_per_item():
 
 def cart_total():
     total = 0
-    print(cart, 'cart')
     for i in cart:
         item = cart[i]
         eligible_offer = 0
@@ -150,8 +149,6 @@ def cart_total():
 
                 items_left = eligible_free
 
-                print(items_left, 'items_left')
-
                 for sp in sp_offers:
                     offer_qty = sp['qty']
                     offer = sp['offer']
@@ -160,19 +157,12 @@ def cart_total():
                         # check if there is enough items to apply offer or how many we can apply
                         if items_left >=  offer_qty:
                             
-
                             # exception for applying freebies to itself
                             if i == offer:
                                 if  item['qty'] % eligible_free == 0:
-                                    print(1, eligible_free, offer_qty )
                                     eligible_offer += (eligible_free - 1) * db_values[i]['price']
                                 else:
-                                    print(2, eligible_free % item['qty'] )
                                     eligible_offer += eligible_free * db_values[i]['price']
-
-                                print(eligible_offer)
-                                # print(item, items_left, offer_qty, offers_to_apply)
-                                # eligible_offer += offers_to_apply * db_values[i]['price']
                             else:   
                                 offers_to_apply = int(items_left / offer_qty)
                                 items_left = offers_to_apply * offer_qty
@@ -187,16 +177,6 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
-
-# print(checkout('FF'), 20)
-# print(checkout('FFF'), 20)
-print(checkout('FFFFFF'), 40)
-# print(checkout('BBBB'), 90)
-# print(checkout('EE'), 80)
-# print(checkout('EEB'), 80)
-# print(checkout('EEEEBB'), 160)
-# print(checkout('CCADDEEBBA'), 280)
-# print(checkout('ABCDEABCDE'), 280)
 
 
 
