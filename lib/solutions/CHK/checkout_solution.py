@@ -82,7 +82,7 @@ def total_per_item():
         if item not in db_values:
             return False
 
-        if 'special_offer' in db_values:
+        if 'special_offer' in db_values[item]:
             # as we can have few offers we need to loop through them
             # and apply biggest one first
             # List of objects with all offers for the item
@@ -116,9 +116,9 @@ def total_per_item():
 
             # if any items left apply regular price
             if items_left > 0:
-                cart[item]['total'] += items_left + db_values[item]['price']
+                cart[item]['total'] += items_left * db_values[item]['price']
         else:
-            cart[item]['total'] += qty + db_values[item]['price']
+            cart[item]['total'] += qty * db_values[item]['price']
 
     return True
 
@@ -140,7 +140,7 @@ def cart_total():
             # check if there is price offers to calculate cost of freebies
             if 'special_offer' in db_values[i]:
                 # there can be more than one offers
-                sp_offers = db_values[item]['special_offer']
+                sp_offers = db_values[i]['special_offer']
                 sp_offers.sort(key=lambda x: x['qty'], reverse=True)
 
                 items_left = eligible_free
@@ -173,6 +173,7 @@ print(checkout("ABCDEABCDE")) # 265
 print(checkout("EEB")) # 110
 print(checkout("EEEB")) # 190
 print(checkout("EEEEBB")) # 205
+
 
 
 
