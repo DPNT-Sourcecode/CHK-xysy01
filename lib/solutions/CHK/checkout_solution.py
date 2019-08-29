@@ -44,6 +44,42 @@ db_values = {
             'type': 'freebie'
         }]
     },
+    'G': {
+        'price': 15,
+    },
+    'H': {
+        'price': 15,
+    },
+    'I': {
+        'price': 15,
+    },
+    'J': {
+        'price': 15,
+    },
+    'K': {
+        'price': 15,
+    },
+    'L': {
+        'price': 15,
+    },
+    'M': {
+        'price': 15,
+    },
+    'N': {
+        'price': 15,
+    },
+    'O': {
+        'price': 15,
+    },
+    'P': {
+        'price': 15,
+    },
+    'D': {
+        'price': 15,
+    },
+    'D': {
+        'price': 15,
+    },
 }
 
 # create cart object with item quantity
@@ -177,3 +213,4 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
+
