@@ -102,8 +102,14 @@ def total_per_item():
                     # how many offers we can apply
                     offers_to_apply = int(items_left / offer_qty)
                     items_left -= offers_to_apply * offer_qty
-                    
+
                     # offers can be a bundle price or freebie
+                    if sp['type'] == 'price':
+                        # update cart total with offer price
+                        cart[item]['total'] += offers_to_apply * offer
+                    elif sp['type'] == 'freebie':
+                        
+
 
 
     return True
@@ -191,6 +197,7 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
 
 
 
