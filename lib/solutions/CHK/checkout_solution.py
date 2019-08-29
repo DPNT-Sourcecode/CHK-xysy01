@@ -187,11 +187,3 @@ print(checkout('FFFFFF'), 40)
 # print(checkout('CCADDEEBBA'), 280)
 # print(checkout('ABCDEABCDE'), 280)
 
-
-
-
-
-
-
-
-
