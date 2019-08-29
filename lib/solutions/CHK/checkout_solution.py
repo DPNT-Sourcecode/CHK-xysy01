@@ -152,21 +152,22 @@ def cart_total():
 
                     # check if there is enough items to apply offer or how many we can apply
                     if items_left >=  offer_qty:
+                        ptint('if')
                         offers_to_apply = int(items_left / offer_qty)
                         items_left = offers_to_apply * offer_qty
 
                         eligible_offer += offers_to_apply * offer
                     else:
-                        if item['qty'] >= offer_qty:
+                        if item['qty'] % offer_qty == 0:
                             eligible_offer += offer - db_values[i]['price']
                         else:
                             eligible_offer += db_values[i]['price']
-        print(i, item, eligible_offer)
         total += item['total'] - eligible_offer
     return total
 
 print(checkout('AAAAAEEBAAABB'), 455)
 print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
+
 
 
 
