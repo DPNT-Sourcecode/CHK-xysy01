@@ -158,25 +158,30 @@ def cart_total():
                         items_left = offers_to_apply * offer_qty
 
                         eligible_offer += offers_to_apply * offer
-                        print(eligible_offer, i, 'if')
+                        # print(eligible_offer, i, 'if')
                     else:
-                        eligible_offer += db_values[i]['price']
-                        print(eligible_offer, i, 'else')
+                        if item['qty'] >= offer_qty:
+                            eligible_offer += offer - db_values[i]['price']
+                        else:
+                            eligible_offer += db_values[i]['price']
+    
+                        # print(eligible_offer, i, 'else')
 
                     # print(eligible_offer, 'eligible_offer')
-        print(i, item, eligible_offer)    
+        # print(i, item, eligible_offer)    
         total += item['total'] - eligible_offer
     return total
 
 
-print(checkout('BEBEEE'), 160) # 160
-print(checkout('EEEEBB'), 160) # 160
-print(checkout('ABCDEABCDE'), 280) # 280
-print(checkout('CCADDEEBBA'), 280) # 280
+# print(checkout('BEBEEE'), 160) # 160
+# print(checkout('EEEEBB'), 160) # 160
+# print(checkout('ABCDEABCDE'), 280) # 280
+# print(checkout('CCADDEEBBA'), 280) # 280
 
-print(checkout('AAAAAAAAAA'), 400) # 400
-print(checkout('EE'), 80) # 80
+# print(checkout('AAAAAAAAAA'), 400) # 400
+# print(checkout('EE'), 80) # 80
 print(checkout('EEB'), 80) # 80
+
 
 
 
