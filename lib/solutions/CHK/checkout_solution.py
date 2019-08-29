@@ -290,4 +290,11 @@ def cart_total():
 
 
 
+print(checkout('UUUUUUUU'), 240)
+print(checkout('RRRRRRQQ'), 240)
+
+
+
+
+
 
