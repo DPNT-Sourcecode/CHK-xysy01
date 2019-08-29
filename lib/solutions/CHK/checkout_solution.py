@@ -133,7 +133,7 @@ def total_per_item():
 
 def cart_total():
     total = 0
-
+    print(cart, 'cart')
     for i in cart:
         item = cart[i]
         eligible_offer = 0
@@ -149,6 +149,8 @@ def cart_total():
                 sp_offers.sort(key=lambda x: x['qty'], reverse=True)
 
                 items_left = eligible_free
+
+                print(items_left, 'items_left')
 
                 for sp in sp_offers:
                     offer_qty = sp['qty']
@@ -177,8 +179,8 @@ def cart_total():
         total += item['total'] - eligible_offer
     return total
 
-print(checkout('FF'), 20)
-print(checkout('FFF'), 20)
+# print(checkout('FF'), 20)
+# print(checkout('FFF'), 20)
 print(checkout('FFFFFF'), 40)
 # print(checkout('BBBB'), 90)
 # print(checkout('EE'), 80)
@@ -186,5 +188,6 @@ print(checkout('FFFFFF'), 40)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('CCADDEEBBA'), 280)
 # print(checkout('ABCDEABCDE'), 280)
+
 
 
