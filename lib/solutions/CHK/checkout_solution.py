@@ -171,4 +171,15 @@ def cart_total():
         total += item['total'] - eligible_offer
     return total
 
+print(checkout('BBBB'), 90)
+print(checkout('FF'), 20)
+print(checkout('FFF'), 20)
+print(checkout('EE'), 80)
+print(checkout('EEB'), 80)
+print(checkout('EEEEBB'), 160)
+print(checkout('CCADDEEBBA'), 280)
+print(checkout('ABCDEABCDE'), 280)
+
+
+
 
