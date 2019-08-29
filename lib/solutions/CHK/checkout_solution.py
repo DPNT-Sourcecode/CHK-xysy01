@@ -162,9 +162,10 @@ def cart_total():
                         items_left = offers_to_apply * offer_qty
 
                         eligible_offer += offers_to_apply * offer
-                        print(eligible_offer, i)
+                        print(eligible_offer, i, 'if')
                     else:
                         eligible_offer += db_values[i]['price']
+                        print(eligible_offer, i, 'else')
 
                     # print(eligible_offer, 'eligible_offer')
         print(i, item, eligible_offer)    
@@ -180,6 +181,7 @@ print(checkout('CCADDEEBBA')) # 280
 # print(checkout('AAAAAAAAAA')) # 400
 # print(checkout('EE')) # 80
 # print(checkout('EEB')) # 80
+
 
 
 
