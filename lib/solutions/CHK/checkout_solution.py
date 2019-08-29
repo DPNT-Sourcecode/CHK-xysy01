@@ -114,6 +114,12 @@ def total_per_item():
                         if offer in cart:
                             cart[offer]['eligible_free'] += offers_to_apply
 
+            # if any items left apply regular price
+            if items_left > 0:
+                cart[item]['total'] += items_left +db_values[item]['price']
+        else:
+            cart[item]['total'] += items_left +db_values[item]['price']
+
 
 
     return True
@@ -201,11 +207,3 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
-
-
-
-
-
-
-
-
