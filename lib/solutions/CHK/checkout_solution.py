@@ -152,7 +152,6 @@ def cart_total():
 
                     # check if there is enough items to apply offer or how many we can apply
                     if items_left >=  offer_qty:
-                        ptint('if')
                         offers_to_apply = int(items_left / offer_qty)
                         items_left = offers_to_apply * offer_qty
 
@@ -165,8 +164,6 @@ def cart_total():
         total += item['total'] - eligible_offer
     return total
 
-print(checkout('AAAAAEEBAAABB'), 455)
-print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
 
 
 
