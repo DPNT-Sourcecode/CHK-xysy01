@@ -271,7 +271,9 @@ def cart_total():
                             if i == offer:
                                 if  item['qty'] % eligible_free == 0:
                                     eligible_offer += (eligible_free - 1) * db_values[i]['price']
+                                    print(1)
                                 else:
+                                    print(1)
                                     eligible_offer += eligible_free * db_values[i]['price']
                             else:   
                                 offers_to_apply = int(items_left / offer_qty)
@@ -291,7 +293,9 @@ def cart_total():
 
 
 print(checkout('UUUUUUUU'), 240)
-print(checkout('RRRRRRQQ'), 240)
+# print(checkout('RRRRRRQQ'), 240)
+# print(checkout('FFFFFF'), 40)
+
 
 
 
