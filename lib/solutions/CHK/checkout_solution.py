@@ -76,6 +76,7 @@ def populate_cart(skus):
             cart[i]['qty'] += 1
 
 def total_per_item():
+
     for item in cart:
         qty = cart[item]['qty']
 
@@ -123,6 +124,7 @@ def total_per_item():
     return True
 
 def cart_total():
+    print(cart)
     total = 0
     eligible_offer = 0
 
@@ -166,6 +168,6 @@ def cart_total():
 
 
 print(checkout('BEBEEE')) # 160
-print(checkout('EEEEBB')) # ?
-print(checkout('ABCDEABCDE')) # 280
-print(checkout('CCADDEEBBA')) # 280
+# print(checkout('EEEEBB')) # ?
+# print(checkout('ABCDEABCDE')) # 280
+# print(checkout('CCADDEEBBA')) # 280
