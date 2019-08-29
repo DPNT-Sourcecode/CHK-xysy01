@@ -166,7 +166,7 @@ def cart_total():
                         eligible_offer += db_values[i]['price']
 
                     # print(eligible_offer, 'eligible_offer')
-        # print(i, item, eligible_offer)    
+        print(i, item, eligible_offer)    
         total += item['total'] - eligible_offer
     return total
 
@@ -175,4 +175,10 @@ print(checkout('BEBEEE')) # 160
 print(checkout('EEEEBB')) # 160
 print(checkout('ABCDEABCDE')) # 280
 print(checkout('CCADDEEBBA')) # 280
+
+print(checkout('AAAAAAAAAA')) # 400
+print(checkout('EE')) # 160
+print(checkout('EEB')) # 280
+
+
 
