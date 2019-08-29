@@ -45,40 +45,64 @@ db_values = {
         }]
     },
     'G': {
-        'price': 15,
+        'price': 20,
     },
     'H': {
-        'price': 15,
+        'price': 10,
     },
     'I': {
-        'price': 15,
+        'price': 35,
     },
     'J': {
-        'price': 15,
+        'price': 60,
     },
     'K': {
-        'price': 15,
+        'price': 80,
     },
     'L': {
-        'price': 15,
+        'price': 90,
     },
     'M': {
         'price': 15,
     },
     'N': {
-        'price': 15,
+        'price': 40,
     },
     'O': {
-        'price': 15,
+        'price': 10,
     },
     'P': {
-        'price': 15,
+        'price': 50,
     },
-    'D': {
-        'price': 15,
+    'Q': {
+        'price': 30,
     },
-    'D': {
-        'price': 15,
+    'R': {
+        'price': 50,
+    },
+    'S': {
+        'price': 30,
+    },
+    'T': {
+        'price': 20,
+    },
+    'U': {
+        'price': 40,
+    },
+    'V': {
+        'price': 50,
+    },
+    'W': {
+        'price': 20,
+    },
+    'X': {
+        'price': 90,
+    },
+    'Y': {
+        'price': 10,
+    },
+    'Z': {
+        'price': 50,
     },
 }
 
@@ -213,4 +237,5 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
+
 
