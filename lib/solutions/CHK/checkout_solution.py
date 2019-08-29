@@ -177,11 +177,3 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
-
-
-
-
-
-
-
-
