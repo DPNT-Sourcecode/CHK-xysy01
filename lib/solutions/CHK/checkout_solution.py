@@ -263,7 +263,42 @@ def cart_total():
                     offer_qty = sp['qty']
                     offer = sp['offer']
 
-                    if sp['type'] == 'price' or i == offer:
+                    # if sp['type'] == 'price' or i == offer:
+                    #     # check if there is enough items to apply offer or how many we can apply
+                    #     if items_left >=  offer_qty:
+                            
+                    #         # exception for applying freebies to itself
+                    #         if i == offer:
+                    #             if  item['qty'] % eligible_free == 0:
+                    #                 eligible_offer += (eligible_free - 1) * db_values[i]['price']
+                    #             else:
+                    #                 eligible_offer += eligible_free * db_values[i]['price']
+                    #         else:   
+                    #             offers_to_apply = int(items_left / offer_qty)
+                    #             items_left = offers_to_apply * offer_qty
+                    #             eligible_offer += offers_to_apply * offer
+                    #     else:
+                    #         if item['qty'] % offer_qty == 0:
+                    #             print(3)
+                    #             # it should always have extra freebie in the cart to apply
+                    #             if i != offer:
+                    #                 eligible_offer += offer - db_values[i]['price']
+                    #         else:
+                    #             print(4,item['qty'], offer_qty)
+                    #             eligible_offer += db_values[i]['price']
+
+                    if sp['type'] == 'price':
+                        # check if there is enough items to apply offer or how many we can apply
+                        if items_left >=  offer_qty:
+                                offers_to_apply = int(items_left / offer_qty)
+                                items_left = offers_to_apply * offer_qty
+                                eligible_offer += offers_to_apply * offer
+                        else:
+                            if item['qty'] % offer_qty == 0:
+                                eligible_offer += offer - db_values[i]['price']
+                            else:
+                                eligible_offer += db_values[i]['price']
+                    elif i == offer:
                         # check if there is enough items to apply offer or how many we can apply
                         if items_left >=  offer_qty:
                             
@@ -273,26 +308,45 @@ def cart_total():
                                     eligible_offer += (eligible_free - 1) * db_values[i]['price']
                                 else:
                                     eligible_offer += eligible_free * db_values[i]['price']
-                            else:   
-                                offers_to_apply = int(items_left / offer_qty)
-                                items_left = offers_to_apply * offer_qty
-                                eligible_offer += offers_to_apply * offer
                         else:
-                            if item['qty'] % offer_qty == 0:
-                                print(3)
-                                # it should always have extra freebie in the cart to apply
-                                if i != offer:
-                                    eligible_offer += offer - db_values[i]['price']
-                            else:
-                                print(4,item['qty'], offer_qty)
-                                eligible_offer += db_values[i]['price']
-        print(cart, db_values[i])
+                            eligible_offer += db_values[i]['price']
+
+
+        # print(cart, db_values[i])
         total += item['total'] - eligible_offer
     return total
 
 
 
 print(checkout('UUUUUUUU'), 240)
-# print(checkout('RRRRRRQQ'), 240)
-# print(checkout('FFFFFF'), 40)
+print(checkout('RRRRRRQQ'), 240)
+print(checkout('FFFFFF'), 40)
+print(checkout('AAAAAAAAAA'), 400)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+print(checkout('FFFFFF'), 40)
+
 
