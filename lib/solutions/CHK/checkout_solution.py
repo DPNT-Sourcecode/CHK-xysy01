@@ -57,7 +57,26 @@ def checkout(skus):
     # populate cart
     populate_cart(skus)
     # calculate total for each item
+    total_per_item()
     # calculate total value
+    cart_total()
+
+def populate_cart(skus):
+    for i in skus:
+        if i not in cart:
+            cart[i] = {
+                'qty': 1,
+                'eligible_free': 0,
+                'total': 0
+            }
+        else:
+            cart[i]['qty'] += 1
+
+def total_per_item():
+    pass
+
+def cart_total():
+    pass
 
 
 
@@ -139,4 +158,5 @@ def checkout(skus):
 #     return total
 
 # print(checkout("B"))
+
 
