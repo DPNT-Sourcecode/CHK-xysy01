@@ -116,9 +116,9 @@ def total_per_item():
 
             # if any items left apply regular price
             if items_left > 0:
-                cart[item]['total'] += items_left +db_values[item]['price']
+                cart[item]['total'] += items_left + db_values[item]['price']
         else:
-            cart[item]['total'] += items_left +db_values[item]['price']
+            cart[item]['total'] += qty + db_values[item]['price']
 
 
 
@@ -207,3 +207,4 @@ def cart_total():
 #     return total
 
 # print(checkout("B"))
+
