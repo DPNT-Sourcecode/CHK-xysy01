@@ -159,14 +159,17 @@ def cart_total():
                     if sp['type'] == 'price' or i == offer:
                         # check if there is enough items to apply offer or how many we can apply
                         if items_left >=  offer_qty:
-                            offers_to_apply = int(items_left / offer_qty)
-                            items_left = offers_to_apply * offer_qty
+                            
 
                             # exception for applying freebies to itself
                             if i == offer:
-                                print(item, items_left, offer_qty, offers_to_apply)
-                                eligible_offer += offers_to_apply * db_values[i]['price']
+                                eligible_offer += items_left + db_values[i]['price']
+                                pass
+                                # print(item, items_left, offer_qty, offers_to_apply)
+                                # eligible_offer += offers_to_apply * db_values[i]['price']
                             else:   
+                                offers_to_apply = int(items_left / offer_qty)
+                                items_left = offers_to_apply * offer_qty
                                 eligible_offer += offers_to_apply * offer
                         else:
                             if item['qty'] % offer_qty == 0:
@@ -188,6 +191,7 @@ print(checkout('FFFFFF'), 40)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('CCADDEEBBA'), 280)
 # print(checkout('ABCDEABCDE'), 280)
+
 
 
 
