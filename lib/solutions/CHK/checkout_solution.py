@@ -315,7 +315,7 @@ def cart_total():
                             if offer_qty != item['qty']:
                                 eligible_offer += eligible_free * db_values[i]['price']
                     elif sp['type'] == 'group':
-                        
+                        pass
             else:
                 eligible_offer += eligible_free * db_values[i]['price']
 
@@ -344,6 +344,7 @@ print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
 print(checkout('EEEEBB'), 160)
 print(checkout('BEBEEE'), 160)
 print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
