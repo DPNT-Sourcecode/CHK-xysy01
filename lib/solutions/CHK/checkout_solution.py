@@ -287,6 +287,9 @@ def cart_total():
                             if offer_qty != item['qty']:
                                 eligible_offer += eligible_free * db_values[i]['price']
 
+            else:
+                print(item, db_values[i]['price'], i)
+                eligible_offer += db_values[i]['price']
 
         total += item['total'] - eligible_offer
     return total
@@ -306,5 +309,6 @@ print("--- prev ---")
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
