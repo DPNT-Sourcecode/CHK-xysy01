@@ -117,6 +117,11 @@ db_values = {
     },
     'S': {
         'price': 30,
+        'special_offer': [{
+            'qty': 3,
+            'offer': 'Q',
+            'type': 'group'
+        }]
     },
     'T': {
         'price': 20,
@@ -309,4 +314,5 @@ print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
 print(checkout('EEEEBB'), 160)
 print(checkout('BEBEEE'), 160)
 print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
