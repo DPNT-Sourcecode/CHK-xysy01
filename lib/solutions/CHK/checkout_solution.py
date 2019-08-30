@@ -265,12 +265,13 @@ def cart_total():
                     if sp['type'] == 'price':
                         # check if there is enough items to apply offer or how many we can apply
                         if items_left >=  offer_qty:
-                                offers_to_apply = int(items_left / offer_qty)
-                                items_left = offers_to_apply * offer_qty
-                                eligible_offer += offers_to_apply * offer
+                            offers_to_apply = int(items_left / offer_qty)
+                            items_left = offers_to_apply * offer_qty
+                            eligible_offer += offers_to_apply * offer
                         else:
                             if item['qty'] % offer_qty == 0:
                                 eligible_offer += offer - db_values[i]['price']
+                                print("Q sp", eligible_offer, offer, db_values[i]['price'])
                             else:
                                 eligible_offer += items_left * db_values[i]['price']
                     elif i == offer:
@@ -285,7 +286,7 @@ def cart_total():
                         else:
                             if offer_qty != item['qty']:
                                 eligible_offer += eligible_free * db_values[i]['price']
-                                print(3, eligible_offer)
+                                print("U sp", eligible_offer)
 
             else:
                 eligible_offer += eligible_free * db_values[i]['price']
@@ -311,6 +312,7 @@ print(checkout('PPPPQRUVPQRUVPQRUVSU'), 740)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
