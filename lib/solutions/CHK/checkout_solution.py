@@ -262,6 +262,8 @@ def total_per_item():
                         # check if offer item in the cart and add it
                         if offer in cart:
                             cart[offer]['eligible_free'] += offers_to_apply
+                    elif sp['type'] == 'group':
+                        print(i, item, '!!!!!!!!!!!')
 
             # if any items left apply regular price
             if items_left > 0:
@@ -273,11 +275,10 @@ def total_per_item():
 
 def cart_total():
     total = 0
-    print(cart)
     for i in cart:
         item = cart[i]
         eligible_offer = 0
-
+    
         # here check for freebies
         if item['eligible_free'] > 0:
             eligible_free = item['eligible_free']
@@ -315,8 +316,6 @@ def cart_total():
                         else:
                             if offer_qty != item['qty']:
                                 eligible_offer += eligible_free * db_values[i]['price']
-                    elif sp['type'] == 'group':
-                        print(i, item, '!!!!!!!!!!!')
             else:
                 eligible_offer += eligible_free * db_values[i]['price']
 
@@ -345,5 +344,6 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
