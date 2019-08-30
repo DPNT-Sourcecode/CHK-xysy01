@@ -243,7 +243,6 @@ def total_per_item():
 
 def cart_total():
     total = 0
-    print(cart)
     for i in cart:
         item = cart[i]
         eligible_offer = 0
@@ -270,7 +269,8 @@ def cart_total():
                             eligible_offer += offers_to_apply * offer
                         else:
                             if item['qty'] % offer_qty == 0:
-                                eligible_offer += offer - db_values[i]['price']
+                                print(item['qty'], offer_qty)
+                                eligible_offer += (item['qty'] - 1) * db_values[i]['price']
                                 print("Q sp", eligible_offer, offer, db_values[i]['price'])
                             else:
                                 eligible_offer += items_left * db_values[i]['price']
@@ -312,11 +312,4 @@ print(checkout('PPPPQRUVPQRUVPQRUVSU'), 740)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
-
-
-
-
-
-
-
 
