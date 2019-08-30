@@ -273,6 +273,7 @@ def total_per_item():
 
 def cart_total():
     total = 0
+    print(cart)
     for i in cart:
         item = cart[i]
         eligible_offer = 0
@@ -315,7 +316,7 @@ def cart_total():
                             if offer_qty != item['qty']:
                                 eligible_offer += eligible_free * db_values[i]['price']
                     elif sp['type'] == 'group':
-                        pass
+                        print(i, item, '!!!!!!!!!!!')
             else:
                 eligible_offer += eligible_free * db_values[i]['price']
 
@@ -323,25 +324,26 @@ def cart_total():
     return total
 
 print(checkout('STX'), 45)
-print(checkout('STXSTX'), 90)
-print(checkout('SSS'), 45)
-print(checkout('ZZZ'), 45)
-print(checkout('SSSZ'), 66)
+# print(checkout('STXSTX'), 90)
+# print(checkout('SSS'), 45)
+# print(checkout('ZZZ'), 45)
+# print(checkout('SSSZ'), 66)
 
 
-print("--- prev ---")
-print(checkout('NNNNNNMM'), 240)
-print(checkout('NNNMNMNN'), 240)
-print(checkout('PPPPQRUVPQRUVPQRUVSU'), 740)
-print(checkout('UUU'), 120)
-print(checkout('NNNM'), 120)
-print(checkout('NNNNM'), 160)
-print(checkout('UUUUUUUU'), 240)
-print(checkout('RRRRRRQQ'), 300)
-print(checkout('FFFFFF'), 40)
-print(checkout('AAAAAAAAAA'), 400)
-print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
-print(checkout('EEEEBB'), 160)
-print(checkout('BEBEEE'), 160)
-print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+# print("--- prev ---")
+# print(checkout('NNNNNNMM'), 240)
+# print(checkout('NNNMNMNN'), 240)
+# print(checkout('PPPPQRUVPQRUVPQRUVSU'), 740)
+# print(checkout('UUU'), 120)
+# print(checkout('NNNM'), 120)
+# print(checkout('NNNNM'), 160)
+# print(checkout('UUUUUUUU'), 240)
+# print(checkout('RRRRRRQQ'), 300)
+# print(checkout('FFFFFF'), 40)
+# print(checkout('AAAAAAAAAA'), 400)
+# print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
+# print(checkout('EEEEBB'), 160)
+# print(checkout('BEBEEE'), 160)
+# print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
