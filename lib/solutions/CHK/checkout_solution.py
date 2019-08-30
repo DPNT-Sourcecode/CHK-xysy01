@@ -67,7 +67,7 @@ db_values = {
         'price': 60,
     },
     'K': {
-        'price': 80,
+        'price': 70,
         'special_offer': [{
             'qty': 2,
             'offer': 150,
@@ -116,7 +116,7 @@ db_values = {
         }]
     },
     'S': {
-        'price': 30,
+        'price': 20,
         'special_offer': [{
             'qty': 3,
             'offer': 'STXYZ',
@@ -158,7 +158,7 @@ db_values = {
         'price': 20,
     },
     'X': {
-        'price': 90,
+        'price': 17,
         'special_offer': [{
             'qty': 3,
             'offer': 'STXYZ',
@@ -167,7 +167,7 @@ db_values = {
         }]
     },
     'Y': {
-        'price': 10,
+        'price': 20,
         'special_offer': [{
             'qty': 3,
             'offer': 'STXYZ',
@@ -176,7 +176,7 @@ db_values = {
         }]
     },
     'Z': {
-        'price': 50,
+        'price': 21,
         'special_offer': [{
             'qty': 3,
             'offer': 'STXYZ',
@@ -339,6 +339,7 @@ print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
 print(checkout('EEEEBB'), 160)
 print(checkout('BEBEEE'), 160)
 print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
