@@ -314,20 +314,25 @@ def cart_total():
                         else:
                             if offer_qty != item['qty']:
                                 eligible_offer += eligible_free * db_values[i]['price']
-
+                    elif sp['type'] == 'group':
+                        
             else:
                 eligible_offer += eligible_free * db_values[i]['price']
 
         total += item['total'] - eligible_offer
     return total
 
+print(checkout('STX'), 45)
+print(checkout('STXSTX'), 90)
+print(checkout('SSS'), 45)
+print(checkout('ZZZ'), 45)
+print(checkout('SSSZ'), 66)
 
 
+print("--- prev ---")
 print(checkout('NNNNNNMM'), 240)
 print(checkout('NNNMNMNN'), 240)
 print(checkout('PPPPQRUVPQRUVPQRUVSU'), 740)
-
-print("--- prev ---")
 print(checkout('UUU'), 120)
 print(checkout('NNNM'), 120)
 print(checkout('NNNNM'), 160)
@@ -339,6 +344,7 @@ print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
 print(checkout('EEEEBB'), 160)
 print(checkout('BEBEEE'), 160)
 print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
