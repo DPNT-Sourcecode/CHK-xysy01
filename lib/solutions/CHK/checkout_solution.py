@@ -275,15 +275,15 @@ def cart_total():
                             else:
                                 eligible_offer += items_left * db_values[i]['price']
                     elif i == offer:
+                        print(i, item)
                         # check if there is enough items to apply offer or how many we can apply
                         if items_left >=  offer_qty:
                             
                             # applying freebies to itself
-                            if i == offer:
-                                if  item['qty'] % eligible_free == 0:
-                                    eligible_offer += (eligible_free - 1) * db_values[i]['price']
-                                else:
-                                    eligible_offer += eligible_free * db_values[i]['price']
+                            if  item['qty'] % eligible_free == 0:
+                                eligible_offer += (eligible_free - 1) * db_values[i]['price']
+                            else:
+                                eligible_offer += eligible_free * db_values[i]['price']
                         else:
                             eligible_offer += eligible_free * db_values[i]['price']
 
@@ -306,6 +306,7 @@ print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
 print(checkout('EEEEBB'), 160)
 print(checkout('BEBEEE'), 160)
 print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
