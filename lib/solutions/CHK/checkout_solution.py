@@ -293,6 +293,24 @@ def cart_total():
 
 
 
+print(checkout('UUU'), 120)
+print(checkout('NNNM'), 120)
+print(checkout('NNNNM'), 160)
+
+print("--- prev ---")
+print(checkout('UUUUUUUU'), 240)
+print(checkout('RRRRRRQQ'), 300)
+print(checkout('FFFFFF'), 40)
+print(checkout('AAAAAAAAAA'), 400)
+print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
+print(checkout('EEEEBB'), 160)
+print(checkout('BEBEEE'), 160)
+print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
+
+
+
+
 
 
 
