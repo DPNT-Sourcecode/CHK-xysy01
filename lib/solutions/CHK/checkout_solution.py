@@ -310,6 +310,3 @@ print(checkout('EEEEBB'), 160)
 print(checkout('BEBEEE'), 160)
 print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
 
-
-
-
