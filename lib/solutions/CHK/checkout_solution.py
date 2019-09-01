@@ -213,10 +213,10 @@ def checkout(skus):
     # add group offers in the cart
     cart['group_offers'] = add_cart_group_offers()
     # populate cart
-    populate_cart(skus)
-    # calculate total for each item
-    if not total_per_item():
+    if not populate_cart(skus):
         return -1
+    # calculate total for each item
+    total_per_item()
     # calculate total value
     return cart_total()
 
@@ -231,6 +231,10 @@ def populate_cart(skus):
     # populate cart object with item quantity
     # leave total = 0 till later calculation 
     for i in skus:
+
+        if i not in db_values:
+            return False
+
         if i not in cart:
             cart[i] = {
                 'qty': 1,
@@ -240,13 +244,16 @@ def populate_cart(skus):
         else:
             cart[i]['qty'] += 1
 
+    return True
+
 def total_per_item():
 
     for item in cart:
-        qty = cart[item]['qty']
 
-        if item not in db_values:
-            return False
+        if item == 'group_offers':
+            continue
+
+        qty = cart[item]['qty']
 
         if 'special_offer' in db_values[item]:
             # as we can have few offers we need to loop through them
@@ -285,8 +292,6 @@ def total_per_item():
                 cart[item]['total'] += items_left * db_values[item]['price']
         else:
             cart[item]['total'] += qty * db_values[item]['price']
-
-    return True
 
 def cart_total():
     total = 0
@@ -359,5 +364,6 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
