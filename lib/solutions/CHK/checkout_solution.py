@@ -249,8 +249,12 @@ def populate_cart(skus):
 def total_per_item():
 
     for item in cart:
-        # do not calculate totals for items in group offers.
+        # skip group offers object 
         if item == 'group_offers':
+            continue
+
+        # do not calculate totals for items in group offers. Will do it later
+        if check_group(item):
             continue
 
         qty = cart[item]['qty']
@@ -292,6 +296,15 @@ def total_per_item():
                 cart[item]['total'] += items_left * db_values[item]['price']
         else:
             cart[item]['total'] += qty * db_values[item]['price']
+
+
+# Check if item in the group and return group
+# else return false
+def check_group(item):
+    for i in group_offers:
+        if item in i:
+            return i
+    return False
 
 def cart_total():
     total = 0
@@ -364,6 +377,7 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
