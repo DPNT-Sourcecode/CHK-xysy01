@@ -386,4 +386,9 @@ def cart_total():
     return total
 
 
+print(checkout('SSSZ'), 65)
+print(checkout('STXS'), 62)
+print(checkout('STXZ'), 62)
+
+
 
