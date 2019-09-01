@@ -186,6 +186,14 @@ db_values = {
     },
 }
 
+# create an object to store all group offers
+group_offers = {
+    'STXYZ': {
+        'qty': 3,
+        'price': 45
+    }
+}
+
 # create cart object with item quantity
 cart = {}
 
@@ -202,6 +210,8 @@ def checkout(skus):
     
     # reset cart
     cart.clear()
+    # add group offers in the cart
+    cart['group_offers'] = add_cart_group_offers()
     # populate cart
     populate_cart(skus)
     # calculate total for each item
@@ -209,6 +219,13 @@ def checkout(skus):
         return -1
     # calculate total value
     return cart_total()
+
+def add_cart_group_offers():
+    groups = {}
+    for i in group_offers:
+        groups[i] = {'qty': 0, 'items': '', 'total': 0}
+    
+    return groups
 
 def populate_cart(skus):
     # populate cart object with item quantity
@@ -342,4 +359,5 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
