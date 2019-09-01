@@ -249,7 +249,7 @@ def populate_cart(skus):
 def total_per_item():
 
     for item in cart:
-
+        # do not calculate totals for items in group offers.
         if item == 'group_offers':
             continue
 
@@ -364,6 +364,7 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
