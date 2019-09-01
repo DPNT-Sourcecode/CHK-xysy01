@@ -325,10 +325,17 @@ def total_per_group():
             offers_to_apply = int(cart['group_offers'][i]['qty'] / group_offers[i]['qty'])
             cart['group_offers'][i]['total'] += db_values[item]['price']
 
+            # check for items left
+            items_left = cart['group_offers'][i]['items'][offers_to_apply * group_offers[i]['qty']::]
+            for item in items_left:
+                cart['group_offers'][i]['total'] = db_values[item]['price']
+
 def cart_total():
     total = 0
     for i in cart:
         if i == 'group_offers':
+            for group in cart['group_offers']:
+                total += cart['group_offers'][group]['total']
             continue
 
         item = cart[i]
@@ -399,4 +406,5 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
