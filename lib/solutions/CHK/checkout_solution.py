@@ -311,7 +311,7 @@ def check_group(item):
             return i
     return False
 
-def check_and_update_group(item)
+def check_and_update_group(item):
     checked = check_group(item)
     if checked:
         cart['group_offers'][checked]['qty'] += 1
@@ -323,7 +323,7 @@ def total_per_group():
         if cart['group_offers'][i]['qty'] >= group_offers[i]['qty']:
             # look how many offers we can apply and calculate total for them
             offers_to_apply = int(cart['group_offers'][i]['qty'] / group_offers[i]['qty'])
-            cart['group_offers'][i]['total'] += db_values[item]['price']
+            cart['group_offers'][i]['total'] += offers_to_apply * group_offers[i]['price']
 
             # check for items left
             items_left = cart['group_offers'][i]['items'][offers_to_apply * group_offers[i]['qty']::]
@@ -385,10 +385,10 @@ def cart_total():
     return total
 
 print(checkout('STX'), 45)
-# print(checkout('STXSTX'), 90)
-# print(checkout('SSS'), 45)
-# print(checkout('ZZZ'), 45)
-# print(checkout('SSSZ'), 66)
+print(checkout('STXSTX'), 90)
+print(checkout('SSS'), 45)
+print(checkout('ZZZ'), 45)
+print(checkout('SSSZ'), 66)
 
 
 # print("--- prev ---")
@@ -406,5 +406,6 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
