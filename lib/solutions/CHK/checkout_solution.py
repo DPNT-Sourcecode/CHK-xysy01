@@ -325,6 +325,11 @@ def total_per_group():
 
             # check for items left
             # TODO: most expensive should go as offer and cheaper ones to be added on top
+            
+            
+
+
+
             items_left = cart['group_offers'][i]['items'][offers_to_apply * group_offers[i]['qty']::]
             for item in items_left:
                 cart['group_offers'][i]['total'] += db_values[item]['price']
