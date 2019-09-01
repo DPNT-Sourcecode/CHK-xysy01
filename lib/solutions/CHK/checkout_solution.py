@@ -324,13 +324,12 @@ def total_per_group():
             cart['group_offers'][i]['total'] += offers_to_apply * group_offers[i]['price']
 
             # check for items left
-            # TODO: most expensive should go as offer and cheaper ones to be added on top
+            # most expensive should go as offer and cheaper ones to be added to the total
             
             items_left = list(cart['group_offers'][i]['items'])
             items_left.sort(key=lambda x: db_values[x]['price'], reverse=True)
-            items_left[3::]
-            print(items_left)
-            # items_left = cart['group_offers'][i]['items'][offers_to_apply * group_offers[i]['qty']::]
+            items_left = items_left[3::]
+
             for item in items_left:
                 cart['group_offers'][i]['total'] += db_values[item]['price']
         else:
@@ -390,9 +389,4 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
-
-
-print(checkout('SSSZ'), 65)
-print(checkout('STXS'), 62)
-print(checkout('STXZ'), 62)
 
