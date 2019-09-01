@@ -321,7 +321,6 @@ def total_per_group():
         if cart['group_offers'][i]['qty'] >= group_offers[i]['qty']:
             # look how many offers we can apply and calculate total for them
             offers_to_apply = int(cart['group_offers'][i]['qty'] / group_offers[i]['qty'])
-            print(offers_to_apply)
             cart['group_offers'][i]['total'] += offers_to_apply * group_offers[i]['price']
 
             # check for items left
@@ -329,7 +328,7 @@ def total_per_group():
             
             items_left = list(cart['group_offers'][i]['items'])
             items_left.sort(key=lambda x: db_values[x]['price'], reverse=True)
-            items_left = items_left[3::]
+            items_left = items_left[offers_to_apply * group_offers[i]['qty']::]
 
             for item in items_left:
                 cart['group_offers'][i]['total'] += db_values[item]['price']
@@ -338,7 +337,6 @@ def total_per_group():
                 cart['group_offers'][i]['total'] += db_values[item]['price']
 
 def cart_total():
-    print(cart)
     total = 0
     for i in cart:
         if i == 'group_offers':
@@ -394,6 +392,6 @@ def cart_total():
 
 
 print(checkout('STXSTX'), 90)
-# print(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1602)
-# print(checkout('LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH'), 1602)
+print(checkout('ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1602)
+print(checkout('LGCKAQXFOSKZGIWHNRNDITVBUUEOZXPYAVFDEPTBMQLYJRSMJCWH'), 1602)
 
