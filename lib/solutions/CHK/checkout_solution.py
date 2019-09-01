@@ -309,6 +309,9 @@ def check_group(item):
 def cart_total():
     total = 0
     for i in cart:
+        if i == 'group_offers':
+            continue
+
         item = cart[i]
         eligible_offer = 0
     
@@ -377,6 +380,7 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
