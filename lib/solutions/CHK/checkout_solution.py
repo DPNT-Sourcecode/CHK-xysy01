@@ -332,6 +332,7 @@ def total_per_group():
                 cart['group_offers'][i]['total'] += db_values[item]['price']
 
 def cart_total():
+    print(cart)
     total = 0
     for i in cart:
         if i == 'group_offers':
@@ -386,7 +387,9 @@ def cart_total():
     return total
 
 
-print(checkout('S'), 20)
+print(checkout('KK'), 120)
+print(checkout('KKK'), 190)
+print(checkout('KKKK'), 240)
 
 
 
