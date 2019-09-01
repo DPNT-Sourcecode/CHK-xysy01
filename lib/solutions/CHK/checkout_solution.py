@@ -70,7 +70,7 @@ db_values = {
         'price': 70,
         'special_offer': [{
             'qty': 2,
-            'offer': 150,
+            'offer': 120,
             'type': 'price'
         },]
     },
@@ -332,7 +332,6 @@ def total_per_group():
                 cart['group_offers'][i]['total'] += db_values[item]['price']
 
 def cart_total():
-    print(cart)
     total = 0
     for i in cart:
         if i == 'group_offers':
@@ -385,11 +384,6 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
-
-
-print(checkout('KK'), 120)
-print(checkout('KKK'), 190)
-print(checkout('KKKK'), 240)
 
 
 
