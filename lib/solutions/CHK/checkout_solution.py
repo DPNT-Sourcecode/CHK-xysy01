@@ -317,6 +317,14 @@ def check_and_update_group(item)
         cart['group_offers'][checked]['qty'] += 1
         cart['group_offers'][checked]['items'] += item
 
+def total_per_group():
+    for i in cart['group_offers']:
+        # if there is enough to apply offer
+        if cart['group_offers'][i]['qty'] >= group_offers[i]['qty']:
+            # look how many offers we can apply and calculate total for them
+            offers_to_apply = int(cart['group_offers'][i]['qty'] / group_offers[i]['qty'])
+            cart['group_offers'][i]['total'] += db_values[item]['price']
+
 def cart_total():
     total = 0
     for i in cart:
@@ -391,11 +399,4 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
-
-
-
-
-
-
-
 
