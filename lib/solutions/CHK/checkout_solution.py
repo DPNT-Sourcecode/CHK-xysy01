@@ -200,8 +200,6 @@ cart = {}
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus):
-    # doing some refactoring
-    
     # check for valid input
     if skus != "" and not skus.isalpha():
         return -1
@@ -328,7 +326,7 @@ def total_per_group():
             # check for items left
             items_left = cart['group_offers'][i]['items'][offers_to_apply * group_offers[i]['qty']::]
             for item in items_left:
-                cart['group_offers'][i]['total'] = db_values[item]['price']
+                cart['group_offers'][i]['total'] += db_values[item]['price']
 
 def cart_total():
     total = 0
@@ -383,29 +381,6 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
-
-print(checkout('STX'), 45)
-print(checkout('STXSTX'), 90)
-print(checkout('SSS'), 45)
-print(checkout('ZZZ'), 45)
-print(checkout('SSSZ'), 66)
-
-
-# print("--- prev ---")
-# print(checkout('NNNNNNMM'), 240)
-# print(checkout('NNNMNMNN'), 240)
-# print(checkout('PPPPQRUVPQRUVPQRUVSU'), 740)
-# print(checkout('UUU'), 120)
-# print(checkout('NNNM'), 120)
-# print(checkout('NNNNM'), 160)
-# print(checkout('UUUUUUUU'), 240)
-# print(checkout('RRRRRRQQ'), 300)
-# print(checkout('FFFFFF'), 40)
-# print(checkout('AAAAAAAAAA'), 400)
-# print(checkout('ABCDECBAABCABBAAAEEAA'), 665)
-# print(checkout('EEEEBB'), 160)
-# print(checkout('BEBEEE'), 160)
-# print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
 
 
 
