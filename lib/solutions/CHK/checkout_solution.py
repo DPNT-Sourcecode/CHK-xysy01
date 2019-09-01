@@ -235,6 +235,8 @@ def populate_cart(skus):
         if i not in db_values:
             return False
 
+        check_and_update_group(i)
+
         if i not in cart:
             cart[i] = {
                 'qty': 1,
@@ -305,6 +307,12 @@ def check_group(item):
         if item in i:
             return i
     return False
+
+def check_and_update_group(item)
+    checked = check_group(item)
+    if checked:
+        cart['group_offers'][checked]['qty'] += 1
+        cart['group_offers'][checked]['items'] += item
 
 def cart_total():
     total = 0
@@ -380,6 +388,7 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
