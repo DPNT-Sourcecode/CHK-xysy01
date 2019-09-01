@@ -343,4 +343,3 @@ print(checkout('STX'), 45)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
 
-
