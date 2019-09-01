@@ -327,6 +327,9 @@ def total_per_group():
             items_left = cart['group_offers'][i]['items'][offers_to_apply * group_offers[i]['qty']::]
             for item in items_left:
                 cart['group_offers'][i]['total'] += db_values[item]['price']
+        else:
+            for item in cart['group_offers'][i]['items']:
+                cart['group_offers'][i]['total'] += db_values[item]['price']
 
 def cart_total():
     total = 0
@@ -381,6 +384,9 @@ def cart_total():
 
         total += item['total'] - eligible_offer
     return total
+
+
+print(checkout('S'), 20)
 
 
 
