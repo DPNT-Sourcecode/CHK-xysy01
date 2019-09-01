@@ -217,6 +217,8 @@ def checkout(skus):
         return -1
     # calculate total for each item
     total_per_item()
+    # calculate total per group
+    total_per_group()
     # calculate total value
     return cart_total()
 
@@ -235,6 +237,7 @@ def populate_cart(skus):
         if i not in db_values:
             return False
 
+        # update cart group offers
         check_and_update_group(i)
 
         if i not in cart:
@@ -388,6 +391,7 @@ print(checkout('STX'), 45)
 # print(checkout('EEEEBB'), 160)
 # print(checkout('BEBEEE'), 160)
 # print(checkout('FFABCDECBAABCABBAAAEEAAFF'), 695)
+
 
 
 
